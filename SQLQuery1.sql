@@ -19,7 +19,38 @@ Description nvarchar(50),
 FOREIGN KEY (BrandId) REFERENCES Brands(BrandId),
 FOREIGN KEY (ColorId) REFERENCES Colors(ColorId)
 )
+CREATE TABLE Users(
+	Id int PRIMARY KEY IDENTITY(1,1),
+	FirstName nvarchar(50),
+	LastName nvarchar(50),
+	Email nvarchar(50),
+	Password nvarchar(50)
+)
 
+CREATE TABLE Customers(
+	Id int PRIMARY KEY IDENTITY(1,1),
+	UserId int,
+	CompanyName nvarchar(50),
+	FOREIGN KEY (UserId) REFERENCES Users(Id)
+)
+
+
+CREATE TABLE Rentals(
+	Id int PRIMARY KEY IDENTITY(1,1),
+	CarId int,
+	CustomerId int,
+	RentDate datetime,
+	ReturnDate datetime,
+	FOREIGN KEY (CarId) REFERENCES Cars(CarId),
+	FOREIGN KEY (CustomerId) REFERENCES Customers(Id)
+)
+SELECT* FROM Customers
+select * from Cars
+
+INSERT INTO Users(FirstName,LastName,Email,Password) Values('Esma','Karagülle','ek@gmail.com','123');
+INSERT INTO Users(FirstName,LastName,Email,Password) Values('Engin','Demiroğ','ed@gmail.com','321');
+INSERT INTO Customers(UserId,CompanyName)VALUES('1','Esma limited şirketi');
+INSERT INTO Rentals(CarId,CustomerId,RentDate,ReturnDate) VALUES('1','1','2020-01-03 17:30:00','2020-10-03 12:30:00');
 INSERT INTO Brands(BrandName) Values('Mercedes'),('BMW'),('Volkswagen'),('Toyota'),('Volvo');
 INSERT INTO Colors(ColorName) Values('Beyaz'),('Siyah'),('Gri'),('Mavi'),('Kırmızı');
 INSERT INTO Cars(BrandId,ColorId,CarName,ModelYear,DailyPrice,Description)
@@ -30,4 +61,4 @@ Values
 ('4','3','C-HR','2019','150','Hibrit'),
 ('5','5','S90','2018','150','Benzin');
 
-select * from Cars
+
