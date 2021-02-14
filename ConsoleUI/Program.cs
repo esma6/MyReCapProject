@@ -12,7 +12,7 @@ namespace ConsoleUI
         {
             CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
 
-            // DeleteCustomer(customerManager);
+             DeleteCustomer(customerManager);
             //AddCustomer(customerManager);
             //UpdateCustomer(customerManager);
 
