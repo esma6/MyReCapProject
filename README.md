@@ -11,10 +11,10 @@ Sunum katmanından gelen bilgileri gerekli koşullara göre işlemek veya denetl
 ## Data Access Layer
 Veritabanı CRUD işlemleri gerçekleştirmek için oluşturulmuştur.
 
-##Core Layer
+## Core Layer
 Core katmanının .Net Core ile hiçbir bağlantısı yoktur.Oluşturulan core katmanında ortak kodlar tutulur. Core katmanı ile, kurumsal bir yapıda, alt yapı ekibi ilgilenir.
 
-##İndirilen paketler
+## İndirilen paketler
 --DataAccess
 📦 Microsoft.EntityFrameworkCore.SqlServer
 📦 Microsoft.EntityFrameworkCore
