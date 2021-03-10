@@ -19,12 +19,12 @@ Description nvarchar(50),
 FOREIGN KEY (BrandId) REFERENCES Brands(BrandId),
 FOREIGN KEY (ColorId) REFERENCES Colors(ColorId)
 )
-CREATE TABLE Users(
-	Id int PRIMARY KEY IDENTITY(1,1),
-	FirstName nvarchar(50),
-	LastName nvarchar(50),
-	Email nvarchar(50),
-	Password nvarchar(50)
+CREATE TABLE UserOperationClaims(
+Id int PRIMARY KEY IDENTITY(1,1),
+UserId int,
+OperationClaimId int,
+FOREIGN KEY (UserId) REFERENCES Users(Id),
+FOREIGN KEY (OperationClaimId) REFERENCES OperationClaims(Id)
 )
 
 CREATE TABLE Customers(
@@ -44,6 +44,14 @@ CREATE TABLE Rentals(
 	FOREIGN KEY (CarId) REFERENCES Cars(CarId),
 	FOREIGN KEY (CustomerId) REFERENCES Customers(Id)
 )
+CREATE TABLE CarImages(
+Id int PRIMARY KEY IDENTITY(1,1),
+CarId int,
+ImagePath varchar(MAX),
+Date datetime,
+FOREIGN KEY (CarId) REFERENCES Cars(CarId)
+)
+
 SELECT* FROM Customers
 select * from Cars
 
