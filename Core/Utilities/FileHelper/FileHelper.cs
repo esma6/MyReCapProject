@@ -1,5 +1,4 @@
-﻿
-using Core.Utilities.Results;
+﻿using Core.Utilities.Results;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -55,7 +54,7 @@ namespace Core.Utilities.FileHelper
             FileInfo ff = new FileInfo(file.FileName);
             string fileExtension = ff.Extension;
 
-            string path = Environment.CurrentDirectory + @"\wwwroot";
+            string path = Environment.CurrentDirectory + @"\wwwroot\uploads";
             var newPath = Guid.NewGuid().ToString() + fileExtension;
 
             string result = $@"{path}\{newPath}";
